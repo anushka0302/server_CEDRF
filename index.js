@@ -12,7 +12,7 @@ const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 
 const BASE_URL = process.env.BASE_URL;
-
+const PORT = process.env.PORT || 8000;
 function generateOrderId() {
   const uniqueId = crypto.randomBytes(16).toString('hex');
   const hash = crypto.createHash('sha256').update(uniqueId).digest('hex');
@@ -114,4 +114,4 @@ app.post('/verify', async (req, res) => {
 });
 
 
-app.listen(8000, () => console.log('✅ Server running on port 8000'));
+app.listen(PORT, () => console.log('✅ Server running on port 8000'));
